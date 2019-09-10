@@ -24,7 +24,7 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("NTUT 321 Lab"),),
+        appBar: AppBar(title: Text("NTUT 321 Lab 後台監控系統"),),
         body: new Center(
           child: Column(
             children: <Widget>[
@@ -71,7 +71,7 @@ class MainScreenState extends State<MainScreen>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-        appBar: AppBar(title: Text("功能頁面"),),
+        appBar: AppBar(title: Text("NTUT 321 Lab 後台監控系統"),),
         body: new Center(
           child: Column(
             children: <Widget>[
@@ -231,19 +231,15 @@ class MedicineDataState extends State<MedicineData> {
 
 
                     )),)),
-         /* Container(
+          /* Container(
               width: 150,
-
               child:
               Center(
                 child:
                 Text.rich(
-
                     TextSpan(
                       text: document["數量"],
                       style: TextStyle(fontSize: 16.0,color: Colors.black,fontWeight: FontWeight.w600),
-
-
                     )),)),*/
           Container(
               width: 150,
@@ -287,6 +283,20 @@ class MedicineDataState extends State<MedicineData> {
 
 
                     )),)),
+          Container(
+            width:  150,
+            height: 50,
+
+            child:
+            RaisedButton(
+                child: new Text("詳細資料"),
+                onPressed: ()
+                {
+                  Navigator.push(context, new MaterialPageRoute(builder:(context) => new NumberData()),
+                  );
+                }
+            ),
+          ),
 
         ],
       ),
@@ -301,7 +311,7 @@ class MedicineDataState extends State<MedicineData> {
 
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(title: Text("藥品資料"),),
+        appBar: AppBar(title: Text("NTUT 321 Lab 後台監控系統"),),
         body: Scrollbar(
             child:SingleChildScrollView(   //讀入資料放入可提供水平滑動
                 scrollDirection: Axis.horizontal,
@@ -313,19 +323,7 @@ class MedicineDataState extends State<MedicineData> {
 
                     child: Column(
                         children: <Widget>[
-                          Container(
-                            height: 50,
-                            margin: EdgeInsets.only(left: 50),
-                            child:
-                            RaisedButton(
-                                child: new Text("詳細資料"),
-                                onPressed: ()
-                                {
-                                  Navigator.push(context, new MaterialPageRoute(builder:(context) => new NumberData()),
-                                  );
-                                }
-                            ),
-                          ),
+
 
 
                           SizedBox(
@@ -346,30 +344,30 @@ class MedicineDataState extends State<MedicineData> {
                                             Text("107項次",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
                                           ),
                                         ),
-                                          Container(
-                                            width: 150,
-                                            child:
-                                            Center(
-                                              child:
-                                              Text("中文",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
-                                            ),
-                                            ),
                                         Container(
                                           width: 150,
                                           child:
-                                            Center(
-                                              child:
-                                              Text("健保價",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
-                                            ),
-                                            ),
+                                          Center(
+                                            child:
+                                            Text("中文",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 150,
+                                          child:
+                                          Center(
+                                            child:
+                                            Text("健保價",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
+                                          ),
+                                        ),
                                         Container(
                                           width: 150,
                                           child:
                                           Center(
                                             child:
                                             Text("健保單位",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
-                                            ),
-                                            ),
+                                          ),
+                                        ),
                                         Container(
                                           width: 150,
                                           child:
@@ -426,6 +424,15 @@ class MedicineDataState extends State<MedicineData> {
                                             Text("類型",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
                                           ),
                                         ),
+                                            Container(
+                                            width: 150,
+                                            child:
+                                            Center(
+                                            child:
+                                            Text("數量",style:TextStyle(fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600,)),
+                                            ),
+                                            ),
+                                          
                                       ],
                                     ),
                                   )
@@ -565,6 +572,7 @@ class NumberDataDataState extends State<NumberData>
                     )),)),
 
 
+
         ],
       ),
     );
@@ -573,10 +581,10 @@ class NumberDataDataState extends State<NumberData>
 
   @override
   Widget build(BuildContext context) {
-   // final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(title: Text("數量資料"),),
+        appBar: AppBar(title: Text("NTUT 321 Lab 後台監控系統"),),
         body: Scrollbar(
             child:SingleChildScrollView(   //讀入資料放入可提供水平滑動
                 scrollDirection: Axis.horizontal,
@@ -646,7 +654,7 @@ class NumberDataDataState extends State<NumberData>
                               child:
 
                               StreamBuilder<QuerySnapshot>(
-                                  stream: Firestore.instance.collection('DrugBank').document('51z6LUQkx1ogX3rQE5er').collection('number').snapshots(),
+                                  stream: Firestore.instance.collection('DrugBank').document('SRGesJNfoBzdUyeYPaOc').collection('number').snapshots(),
 
                                   builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
                                     if(!snapshot.hasData) return Text("loading...");
@@ -655,7 +663,7 @@ class NumberDataDataState extends State<NumberData>
 
                                     return Scrollbar(
                                       child: ListView.builder(
-                                       //   padding: const EdgeInsets.all(5.0),
+                                        //   padding: const EdgeInsets.all(5.0),
                                           scrollDirection: Axis.vertical, //讓list可以向下滑
                                           shrinkWrap: true,
                                           itemCount: docs.length,
@@ -693,7 +701,3 @@ class NumberDataDataState extends State<NumberData>
     );
   }
 }
-
-
-
-
